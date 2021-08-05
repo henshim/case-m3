@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class AddColumnCateIdToFoodsTable extends Migration
+class CreateTagsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,9 +13,10 @@ class AddColumnCateIdToFoodsTable extends Migration
      */
     public function up()
     {
-        Schema::table('foods', function (Blueprint $table) {
-            $table->unsignedBigInteger('cate_id');
-            $table->foreign('cate_id')->references('id')->on('categories');
+        Schema::create('tags', function (Blueprint $table) {
+            $table->id();
+            $table->string('name');
+            $table->timestamps();
         });
     }
 
@@ -26,8 +27,6 @@ class AddColumnCateIdToFoodsTable extends Migration
      */
     public function down()
     {
-        Schema::table('foods', function (Blueprint $table) {
-            //
-        });
+        Schema::dropIfExists('tags');
     }
 }

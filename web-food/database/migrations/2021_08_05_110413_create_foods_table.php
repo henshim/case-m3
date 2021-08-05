@@ -1,10 +1,11 @@
+
 <?php
 
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateFoodTable extends Migration
+class CreateFoodsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -16,10 +17,10 @@ class CreateFoodTable extends Migration
         Schema::create('foods', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->text('img')->nullable();
-            $table->text('note')->nullable();
+            $table->text('image')->nullable();
+            $table->string('description')->nullable();
             $table->integer('price');
-            $table->integer('discount')->nullable();
+            $table->integer('price_after_sale');
             $table->integer('service_charge');
             $table->integer('preparation_time');
             $table->timestamps();
@@ -33,6 +34,6 @@ class CreateFoodTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('food');
+        Schema::dropIfExists('foods');
     }
 }
