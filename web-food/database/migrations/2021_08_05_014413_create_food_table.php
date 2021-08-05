@@ -22,12 +22,6 @@ class CreateFoodTable extends Migration
             $table->integer('discount')->nullable();
             $table->integer('service_charge');
             $table->integer('preparation_time');
-//            $table->unsignedBigInteger('tag_id');
-//            $table->foreign('tag_id')->references('id')->on('tag_foods');
-//            $table->unsignedBigInteger('user_id');
-//            $table->foreign('user_id')->references('id')->on('users');
-//            $table->unsignedBigInteger('cate_id');
-//            $table->foreign('cate_id')->references('id')->on('categories');
             $table->timestamps();
         });
     }
