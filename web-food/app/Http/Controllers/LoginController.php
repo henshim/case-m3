@@ -26,7 +26,7 @@ class LoginController extends Controller
 
         $data = [
             'email' => $email,
-            $password => $password,
+            'password' => $password,
         ];
 
         if (Auth::attempt($data)){

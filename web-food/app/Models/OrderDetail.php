@@ -5,12 +5,16 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Category extends Model
+class OrderDetail extends Model
 {
     use HasFactory;
-
     public function food()
     {
-        return $this->hasMany(Food::class,'category_id');
+        return $this->hasOne(Food::class,'food_id');
+    }
+
+    public function order()
+    {
+        return $this->belongsTo(Order::class,'order_id');
     }
 }
