@@ -17,18 +17,17 @@ class CreateUsersTable extends Migration
             $table->id();
             $table->string('name');
             $table->string('email')->unique();
-//            $table->timestamp('email_verified_at')->nullable();
+            $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
-            $table->text('img')->nullable()->default('default-avatar.jpg');
+            $table->text('image')->nullable();
             $table->string('status')->nullable();
-            $table->integer('phone');
+            $table->string('phone');
             $table->text('address')->nullable();
-//            $table->time('open_hour');
-            $table->string('forbidden')->nullable();
-            $table->unsignedBigInteger('role_id')->nullable();
-            $table->foreign('role_id')->references('id')->on('roles');
-            $table->rememberToken();
             $table->string('restaurant')->nullable();
+            $table->integer('status_action')->default(0);
+            $table->integer('status_ban')->default(0);
+            $table->rememberToken();
+            $table->timestamps();
         });
     }
 

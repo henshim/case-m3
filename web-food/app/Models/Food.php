@@ -11,16 +11,16 @@ class Food extends Model
 
     public function tag()
     {
-        return $this->belongsTo(TagFood::class);
+        return $this->belongsTo(Tag::class,'tag_id');
     }
 
-    public function user()
+    public function category()
     {
-        return $this->belongsTo(User::class);
+        return $this->belongsTo(Category::class,'category_id');
     }
 
-    public function cate()
+    public function orderdetail()
     {
-        return $this->belongsTo(Category::class);
+        return $this->belongsTo(OrderDetail::class,'food_id');
     }
 }

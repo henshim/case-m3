@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateTagFoodTable extends Migration
+class CreateOrdersTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,8 +13,11 @@ class CreateTagFoodTable extends Migration
      */
     public function up()
     {
-        Schema::create('tags', function (Blueprint $table) {
+        Schema::create('orders', function (Blueprint $table) {
             $table->id();
+            $table->string('address')->nullable();
+            $table->dateTime('date_create_order')->nullable();
+            $table->bigInteger('total_payment')->nullable();
             $table->timestamps();
         });
     }
@@ -26,6 +29,6 @@ class CreateTagFoodTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('tag_food');
+        Schema::dropIfExists('orders');
     }
 }
