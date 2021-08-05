@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\LoginController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,6 +14,14 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+Route::prefix('login')->group(function (){
+    Route::get('login',[LoginController::class,'goToLogin'])->name('login.goToLogin');
+
+    Route::get('register',[LoginController::class,'goToRegister'])->name('login.goToRegister');
+
+    Route::post('login',[LoginController::class,'login'])->name('login.login');
+
+    Route::post('register',[LoginController::class,'register'])->name('login.register');
+
+    Route::get('logout',[LoginController::class,'logout'])->name('login.logout');
 });
