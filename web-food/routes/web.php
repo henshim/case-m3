@@ -14,14 +14,15 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::prefix('login')->group(function (){
-    Route::get('login',[LoginController::class,'goToLogin'])->name('login.goToLogin');
 
-    Route::get('register',[LoginController::class,'goToRegister'])->name('login.goToRegister');
+Route::prefix('login')->group(function () {
+    Route::get('login', [LoginController::class, 'goToLogin'])->name('login.goToLogin');
 
-    Route::post('login',[LoginController::class,'login'])->name('login.login');
+    Route::get('register', [LoginController::class, 'goToRegister'])->name('login.goToRegister');
 
-    Route::post('register',[LoginController::class,'register'])->name('login.register');
+    Route::post('login', [LoginController::class, 'login'])->name('login.login');
 
-    Route::get('logout',[LoginController::class,'logout'])->name('login.logout');
+    Route::post('register', [LoginController::class, 'register'])->name('login.register');
+
+    Route::get('logout', [LoginController::class, 'logout'])->name('login.logout');
 });
