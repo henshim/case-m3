@@ -13,17 +13,22 @@ class User extends Authenticatable
 
     public function role()
     {
-        return $this->hasOne(Role::class,'role_id');
+        return $this->hasOne(Roles::class,'role_id');
     }
 
     public function order()
     {
-        return $this->belongsTo(Order::class,'user_id');
+        return $this->belongsTo(Orders::class,'user_id');
     }
 
     public function restaurant()
     {
-        return $this->belongsTo(Order::class,'restaurant_id');
+        return $this->belongsTo(Orders::class,'restaurant_id');
+    }
+
+    public function food()
+    {
+        return $this->belongsTo(Foods::class,'user_id');
     }
     public $timestamps = false;
     /**
