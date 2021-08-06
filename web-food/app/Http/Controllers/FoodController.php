@@ -18,5 +18,6 @@ class FoodController extends Controller
     public function index()
     {
         $foods=Food::query()->select();
+        dd($foods);
     }
 }
