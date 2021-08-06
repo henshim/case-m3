@@ -28,6 +28,7 @@ Route::prefix('login')->group(function () {
     Route::get('logout', [LoginController::class, 'logout'])->name('login.logout');
 });
 
+
 Route::get('/', [LoginController::class, 'goToLogin'])->name('login.goToLogin');
 
 
@@ -44,3 +45,4 @@ Route::prefix('/admin')->group(function (){
 });
 
 Route::get('admin',function (){return view('');});
+
