@@ -27,4 +27,6 @@ Route::prefix('login')->group(function () {
     Route::get('logout', [LoginController::class, 'logout'])->name('login.logout');
 });
 
-Route::get('/', [LoginController::class, 'goToRegister'])->name('login.goToRegister');
+Route::get('/', function (){
+    return view('food.list');
+});

@@ -17,7 +17,8 @@ class FoodController extends Controller
 
     public function index()
     {
-        $foods=Food::query()->select();
-        dd($foods);
+        $foods=Food::all();
+        return view('food.list',compact('foods'));
     }
+
 }
