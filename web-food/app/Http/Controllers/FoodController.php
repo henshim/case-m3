@@ -17,8 +17,7 @@ class FoodController extends Controller
 
     public function index()
     {
-        $foods=Food::all();
-        return view('food.list',compact('foods'));
+
     }
 
 }
