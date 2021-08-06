@@ -4,21 +4,21 @@
 <head>
     <meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <link rel="apple-touch-icon" sizes="76x76" href="../assets/img/apple-icon.png">
-    <link rel="icon" type="image/png" href="../assets/img/favicon.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="{{ asset('template-admin/assets/img/apple-icon.png') }}">
+    <link rel="icon" type="image/png" href="{{ asset('template-admin/assets/img/favicon.png') }}">
     <title>
-        Soft UI Dashboard by Creative Tim
+       @yield('title')
     </title>
     <!--     Fonts and icons     -->
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet"/>
     <!-- Nucleo Icons -->
-    <link href="../assets/css/nucleo-icons.css" rel="stylesheet"/>
-    <link href="../assets/css/nucleo-svg.css" rel="stylesheet"/>
+    <link href="{{ asset('template-admin/assets/css/nucleo-icons.css') }}" rel="stylesheet"/>
+    <link href="{{ asset('template-admin/assets/css/nucleo-svg.css') }}" rel="stylesheet"/>
     <!-- Font Awesome Icons -->
     <script src="https://kit.fontawesome.com/42d5adcbca.js" crossorigin="anonymous"></script>
-    <link href="../assets/css/nucleo-svg.css" rel="stylesheet"/>
+    <link href="{{ asset('template-admin/assets/css/nucleo-svg.css') }}" rel="stylesheet"/>
     <!-- CSS Files -->
-    <link id="pagestyle" href="{{ asset('Template-admin/assets/css/soft-ui-dashboard.css?v=1.0.3')}}" rel="stylesheet"/>
+    <link id="pagestyle" href="{{ asset('template-admin/assets/css/soft-ui-dashboard.css?v=1.0.3')}}" rel="stylesheet"/>
 </head>
 
 <body class="g-sidenav-show  bg-gray-100">
@@ -29,7 +29,7 @@
            aria-hidden="true" id="iconSidenav"></i>
         <a class="navbar-brand m-0" href="https://demos.creative-tim.com/soft-ui-dashboard/pages/dashboard.html"
            target="_blank">
-            <img src="{{ asset('Template-admin/assets/img/logo-ct.png') }}" class="navbar-brand-img h-100" alt="main_logo">
+            <img src="{{ asset('template-admin/assets/img/logo-ct.png') }}" class="navbar-brand-img h-100" alt="main_logo">
             <span class="ms-1 font-weight-bold">Soft UI Dashboard</span>
         </a>
     </div>
@@ -37,7 +37,7 @@
     <div class="collapse navbar-collapse  w-auto  max-height-vh-100 h-100" id="sidenav-collapse-main">
         <ul class="navbar-nav">
             <li class="nav-item">
-                <a class="nav-link  active" href="{{ asset('Template-admin/pages/dashboard.html') }}">
+                <a class="nav-link  active" href="{{ asset('template-admin/pages/dashboard.html') }}">
                     <div
                         class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center">
                         <svg width="12px" height="12px" viewBox="0 0 45 40" version="1.1"
@@ -61,7 +61,7 @@
                 </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link  " href="{{ asset('Template-admin/pages/tables.html') }}">
+                <a class="nav-link  " href="{{ asset('template-admin/pages/tables.html') }}">
                     <div
                         class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center">
                         <svg width="12px" height="12px" viewBox="0 0 42 42" version="1.1"
@@ -85,7 +85,7 @@
                 </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link  " href="{{ asset('Template-admin/pages/billing.html') }}">
+                <a class="nav-link  " href="{{ asset('template-admin/pages/billing.html') }}">
                     <div
                         class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center">
                         <svg width="12px" height="12px" viewBox="0 0 43 36" version="1.1"
@@ -109,7 +109,7 @@
                 </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link  " href="{{ asset('Template-admin/pages/virtual-reality.html') }}">
+                <a class="nav-link  " href="{{ asset('template-admin/pages/virtual-reality.html') }}">
                     <div
                         class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center">
                         <svg width="12px" height="12px" viewBox="0 0 42 42" version="1.1"
@@ -135,7 +135,7 @@
                 </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link  " href="{{ asset('Template-admin/pages/rtl.html') }}">
+                <a class="nav-link  " href="{{ asset('template-admin/pages/rtl.html') }}">
                     <div
                         class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center">
                         <svg width="12px" height="12px" viewBox="0 0 40 40" version="1.1"
@@ -164,7 +164,7 @@
                 <h6 class="ps-4 ms-2 text-uppercase text-xs font-weight-bolder opacity-6">Account pages</h6>
             </li>
             <li class="nav-item">
-                <a class="nav-link  " href="{{ asset('Template-admin/pages/profile.html') }}">
+                <a class="nav-link  " href="{{ asset('template-admin/pages/profile.html') }}">
                     <div
                         class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center">
                         <svg width="12px" height="12px" viewBox="0 0 46 42" version="1.1"
@@ -190,7 +190,7 @@
                 </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link  " href="{{ asset('Template-admin/pages/sign-in.html') }}">
+                <a class="nav-link  " href="{{ asset('template-admin/pages/sign-in.html') }}">
                     <div
                         class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center">
                         <svg width="12px" height="12px" viewBox="0 0 40 44" version="1.1"
@@ -214,7 +214,7 @@
                 </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link  " href="{{ asset('Template-admin/pages/sign-up.html') }}">
+                <a class="nav-link  " href="{{ asset('template-admin/pages/sign-up.html') }}">
                     <div
                         class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center">
                         <svg width="12px" height="20px" viewBox="0 0 40 40" version="1.1"
@@ -318,7 +318,7 @@
                                 <a class="dropdown-item border-radius-md" href="javascript:;">
                                     <div class="d-flex py-1">
                                         <div class="my-auto">
-                                            <img src="{{ asset('Template-admin/assets/img/team-2.jpg" class="avatar avatar-sm  me-3') }} ">
+                                            <img src="{{ asset('template-admin/assets/img/team-2.jpg" class="avatar avatar-sm  me-3') }} ">
                                         </div>
                                         <div class="d-flex flex-column justify-content-center">
                                             <h6 class="text-sm font-weight-normal mb-1">
@@ -336,7 +336,7 @@
                                 <a class="dropdown-item border-radius-md" href="javascript:;">
                                     <div class="d-flex py-1">
                                         <div class="my-auto">
-                                            <img src="{{ asset('Template-admin/assets/img/small-logos/logo-spotify.svg') }}"
+                                            <img src="{{ asset('template-admin/assets/img/small-logos/logo-spotify.svg') }}"
                                                  class="avatar avatar-sm bg-gradient-dark  me-3 ">
                                         </div>
                                         <div class="d-flex flex-column justify-content-center">
@@ -403,11 +403,11 @@
         </div>
     </div>
 </main>
-<script src="{{ asset('Template-admin/assets/js/core/popper.min.js')}}"></script>
-<script src="{{ asset('Template-admin/assets/js/core/bootstrap.min.js') }}"></script>
-<script src="{{ asset('Template-admin/assets/js/plugins/perfect-scrollbar.min.js) }}"></script>
-<script src="{{ asset('Template-admin/assets/js/plugins/smooth-scrollbar.min.js) }}"></script>
-<script src="{{ asset('Template-admin/assets/js/plugins/chartjs.min.js) }}"></script>
+<script src="{{ asset('template-admin/assets/js/core/popper.min.js')}}"></script>
+<script src="{{ asset('template-admin/assets/js/core/bootstrap.min.js') }}"></script>
+<script src="{{ asset('template-admin/assets/js/plugins/perfect-scrollbar.min.js) }}"></script>
+<script src="{{ asset('template-admin/assets/js/plugins/smooth-scrollbar.min.js) }}"></script>
+<script src="{{ asset('template-admin/assets/js/plugins/chartjs.min.js) }}"></script>
 <script>
     var ctx = document.getElementById("chart-bars").getContext("2d");
 
@@ -590,6 +590,6 @@
 <!-- Github buttons -->
 <script async defer src="https://buttons.github.io/buttons.js"></script>
 <!-- Control Center for Soft Dashboard: parallax effects, scripts for the example pages etc -->
-<script src="{{ asset('Template-admin/assets/js/soft-ui-dashboard.min.js?v=1.0.3) }}"></script>
+<script src="{{ asset('template-admin/assets/js/soft-ui-dashboard.min.js?v=1.0.3) }}"></script>
 </body>
 </html>
