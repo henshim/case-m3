@@ -10,11 +10,11 @@ class OrderDetail extends Model
     use HasFactory;
     public function food()
     {
-        return $this->hasOne(Food::class,'food_id');
+        return $this->hasOne(Foods::class,'food_id');
     }
 
     public function order()
     {
-        return $this->belongsTo(Order::class,'order_id');
+        return $this->belongsTo(Orders::class,'order_id');
     }
 }

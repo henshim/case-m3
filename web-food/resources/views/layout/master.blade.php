@@ -4,19 +4,24 @@
 <head>
     <meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <link rel="apple-touch-icon" sizes="76x76" href="{{ asset('assets/img/apple-icon.png') }}">
-    <link rel="icon" type="image/png" href="{{ asset('assets/img/favicon.png') }}">
+
+    <link rel="apple-touch-icon" sizes="76x76" href="{{asset('Template-admin/assets/img/apple-icon.png')}}">
+    <link rel="icon" type="image/png" href="{{asset('Template-admin/assets/img/favicon.png')}}">
+
     <title>
-       @yield('title')
+        @yield('title')
     </title>
     <!--     Fonts and icons     -->
-    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet'/>
     <!-- Nucleo Icons -->
-    <link href="{{ asset('assets/css/nucleo-icons.css') }}" rel="stylesheet"/>
-    <link href="{{ asset('assets/css/nucleo-svg.css') }}" rel="stylesheet"/>
+
+    <link href="{{asset('Template-admin/assets/css/nucleo-icons.css')}}" rel="stylesheet"/>
+    <link href="{{asset('Template-admin/assets/css/nucleo-svg.css')}}" rel="stylesheet"/>
     <!-- Font Awesome Icons -->
-    <script src="https://kit.fontawesome.com/42d5adcbca.js" crossorigin="anonymous"></script>
-    <link href="{{ asset('assets/css/nucleo-svg.css') }}" rel="stylesheet"/>
+    <script src='https://kit.fontawesome.com/42d5adcbca.js' crossorigin="anonymous"></script>
+    <link href="{{asset('Template-admin/assets/css/nucleo-svg.css')}}" rel="stylesheet"/>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <!-- CSS Files -->
     <link id="pagestyle" href="{{ asset('assets/css/soft-ui-dashboard.css?v=1.0.3')}}" rel="stylesheet"/>
 </head>
@@ -246,7 +251,7 @@
     <div class="sidenav-footer mx-3 ">
         <div class="card card-background shadow-none card-background-mask-secondary" id="sidenavCard">
             <div class="full-background"
-                 style="background-image: url('../assets/img/curved-images/white-curved.jpeg')"></div>
+                 style="background-image: url('{{asset('')}}/assets/img/curved-images/white-curved.jpeg')"></div>
             <div class="card-body text-start p-3 w-100">
                 <div
                     class="icon icon-shape icon-sm bg-white shadow text-center mb-3 d-flex align-items-center justify-content-center border-radius-md">
@@ -318,7 +323,8 @@
                                 <a class="dropdown-item border-radius-md" href="javascript:;">
                                     <div class="d-flex py-1">
                                         <div class="my-auto">
-                                            <img src="{{ asset('assets/img/team-2.jpg" class="avatar avatar-sm  me-3') }} ">
+                                            <img
+                                                src="{{ asset('assets/img/team-2.jpg" class="avatar avatar-sm  me-3') }} ">
                                         </div>
                                         <div class="d-flex flex-column justify-content-center">
                                             <h6 class="text-sm font-weight-normal mb-1">
@@ -395,7 +401,7 @@
     </nav>
     <div class="container-fluid py-4">
         <div class="row">
-            <div class="col-lg-8">
+            <div class="col-lg-11">
                 <div class="row">
                     @yield('content')
                 </div>
@@ -403,11 +409,13 @@
         </div>
     </div>
 </main>
-<script src="{{ asset('assets/js/core/popper.min.js') }}"></script>
-<script src="{{ asset('assets/js/core/bootstrap.min.js') }}"></script>
-<script src="{{ asset('assets/js/plugins/perfect-scrollbar.min.js') }}"></script>
-<script src="{{ asset('assets/js/plugins/smooth-scrollbar.min.js') }}"></script>
-<script src="{{ asset('assets/js/plugins/chartjs.min.js') }}"></script>
+
+<script src="{{ asset('Template-admin/assets/js/core/popper.min.js')}}"></script>
+<script src="{{ asset('Template-admin/assets/js/core/bootstrap.min.js') }}"></script>
+<script src="{{ asset('Template-admin/assets/js/plugins/perfect-scrollbar.min.js') }}"></script>
+<script src="{{ asset('Template-admin/assets/js/plugins/smooth-scrollbar.min.js') }}"></script>
+<script src="{{ asset('Template-admin/assets/js/plugins/chartjs.min.js') }}"></script>
+
 <script>
     var ctx = document.getElementById("chart-bars").getContext("2d");
 
@@ -590,6 +598,8 @@
 <!-- Github buttons -->
 <script async defer src="https://buttons.github.io/buttons.js"></script>
 <!-- Control Center for Soft Dashboard: parallax effects, scripts for the example pages etc -->
-<script src="{{ asset('assets/js/soft-ui-dashboard.min.js?v=1.0.3') }}"></script>
+
+<script src="{{ asset('Template-admin/assets/js/soft-ui-dashboard.min.js?v=1.0.3') }}"></script>
+
 </body>
 </html>

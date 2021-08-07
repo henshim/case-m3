@@ -26,6 +26,7 @@ class FoodTableSeeder extends Seeder
                     'preparation_time'=>3,
                     'tag_id'=>2,
                     'category_id'=>1,
+                    'restaurant_id'=> 2,
                 ],
                 [
                     'name'=>'Com van phong',
