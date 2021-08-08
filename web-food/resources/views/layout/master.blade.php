@@ -9,18 +9,19 @@
     <link rel="icon" type="image/png" href="{{asset('Template-admin/assets/img/favicon.png')}}">
 
     <title>
-       @yield('title')
+        @yield('title')
     </title>
     <!--     Fonts and icons     -->
-    <link href="{{asset('https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet')}}"/>
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet'/>
     <!-- Nucleo Icons -->
 
     <link href="{{asset('Template-admin/assets/css/nucleo-icons.css')}}" rel="stylesheet"/>
     <link href="{{asset('Template-admin/assets/css/nucleo-svg.css')}}" rel="stylesheet"/>
     <!-- Font Awesome Icons -->
-    <script src="{{asset('https://kit.fontawesome.com/42d5adcbca.js')}}" crossorigin="anonymous"></script>
+    <script src='https://kit.fontawesome.com/42d5adcbca.js' crossorigin="anonymous"></script>
     <link href="{{asset('Template-admin/assets/css/nucleo-svg.css')}}" rel="stylesheet"/>
-
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <!-- CSS Files -->
     <link id="pagestyle" href="{{ asset('assets/css/soft-ui-dashboard.css?v=1.0.3')}}" rel="stylesheet"/>
 </head>
@@ -194,7 +195,7 @@
                 </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link  " href="{{ asset('pages/sign-in.html') }}">
+                <a class="nav-link  " href="{{ route('login.goToLogin')}}">
                     <div
                         class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center">
                         <svg width="12px" height="12px" viewBox="0 0 40 44" version="1.1"
@@ -292,7 +293,7 @@
                 </div>
                 <ul class="navbar-nav  justify-content-end">
                     <li class="nav-item d-flex align-items-center">
-                        <a href="javascript:;" class="nav-link text-body font-weight-bold px-0">
+                        <a href="{{ route('login.goToLogin')}}" class="nav-link text-body font-weight-bold px-0">
                             <i class="fa fa-user me-sm-1"></i>
                             <span class="d-sm-inline d-none">Sign In</span>
                         </a>
@@ -322,7 +323,8 @@
                                 <a class="dropdown-item border-radius-md" href="javascript:;">
                                     <div class="d-flex py-1">
                                         <div class="my-auto">
-                                            <img src="{{ asset('assets/img/team-2.jpg" class="avatar avatar-sm  me-3') }} ">
+                                            <img
+                                                src="{{ asset('assets/img/team-2.jpg" class="avatar avatar-sm  me-3') }} ">
                                         </div>
                                         <div class="d-flex flex-column justify-content-center">
                                             <h6 class="text-sm font-weight-normal mb-1">

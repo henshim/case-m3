@@ -20,7 +20,7 @@ class CreateFoodsTable extends Migration
             $table->text('image')->nullable();
             $table->string('description')->nullable();
             $table->integer('price');
-            $table->integer('price_after_sale');
+            $table->integer('discount')->nullable();
             $table->integer('service_charge');
             $table->integer('preparation_time');
             $table->timestamps();
