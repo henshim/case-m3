@@ -21,7 +21,7 @@ class FoodRepository
         return Foods::query()
             ->select('foods.id', 'foods.name',
                 'foods.image', 'foods.description',
-                'foods.price', 'foods.price_after_sale',
+                'foods.price', 'foods.discount',
                 'foods.service_charge', 'foods.preparation_time',
                 'tags.name AS tag_name', 'categories.name AS category_name',
                 'users.restaurant AS restaurant')

@@ -21,6 +21,7 @@ class LoginController extends Controller
 
     public function login(Request $request)
     {
+        //dd(123);
         $email = $request->email;
         $password = $request->password;
 
@@ -28,9 +29,9 @@ class LoginController extends Controller
             'email' => $email,
             'password' => $password,
         ];
-
+//dd($data);
         if (Auth::attempt($data)){
-            return redirect()->route('food.list');
+            return redirect()->route('admin.food.list');
         }else{
             session()->flash('login_error','Account not exists');
             return redirect()->route('login.goToLogin');
