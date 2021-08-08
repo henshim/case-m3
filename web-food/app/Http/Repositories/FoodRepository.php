@@ -4,6 +4,7 @@ namespace App\Http\Repositories;
 
 use App\Models\Foods;
 use http\Env\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 
 class FoodRepository
@@ -15,7 +16,7 @@ class FoodRepository
         $this->foodModel = $foodModel;
     }
 
-    public function getAll()
+    public function getAllByUser()
     {
 //        return Foods::with('tag','category','user')->get();
         return Foods::query()
@@ -27,9 +28,22 @@ class FoodRepository
                 'users.restaurant AS restaurant')
             ->join('tags', 'tags.id', '=', 'tag_id')
             ->join('categories', 'categories.id', '=', 'category_id')
-            ->join('users', 'users.id', '=', 'user_id')->paginate(2);
+            ->join('users', 'users.id', '=', 'user_id')->where('user_id',Auth::user()->id)->paginate(2);
     }
 
+    public function getAll()
+    {
+        return Foods::query()
+            ->select('foods.id', 'foods.name',
+                'foods.image', 'foods.description',
+                'foods.price', 'foods.discount',
+                'foods.service_charge', 'foods.preparation_time',
+                'tags.name AS tag_name', 'categories.name AS category_name',
+                'users.restaurant AS restaurant')
+            ->join('tags', 'tags.id', '=', 'tag_id')
+            ->join('categories', 'categories.id', '=', 'category_id')
+            ->join('users', 'users.id', '=', 'user_id')->paginate(2);
+    }
     public function add($request)
     {
     }

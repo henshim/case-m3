@@ -29,7 +29,7 @@ class FoodController extends Controller
     public function index()
     {
         $foods = $this->foodRepository->getAll();
-        return view('backend.admin.food.list', compact('foods'));
+        return view('frontend.list', compact('foods'));
     }
 
     public function create()
@@ -76,14 +76,50 @@ class FoodController extends Controller
         }
     }
 
-    public function update()
+    public function update($id)
     {
-
+        $food = Foods::query()->findOrFail($id);
+        //dd($food);
+        $tags = Tags::all();
+        $categories = Categories::all();
+        return view('backend.admin.food.update', compact('food', 'tags', 'categories'));
     }
 
-    public function edit()
+    public function edit(Request $request)
     {
-
+        if ($request->hasFile('img')) {
+            $id = $request->id;
+            $name = $request->name;
+            $description = $request->description;
+            $price = $request->price;
+            $service_charge = $request->service_charge;
+            $preparation_time = $request->preparation_time;
+            $discount = $request->discount;
+            $tag = $request->tag;
+            $cate = $request->category;
+            $path = $request->file('img')->store('images', 'public');
+            $insert = ['name' => $name, 'description' => $description, 'price' => $price, 'service_charge' => $service_charge,
+                'preparation_time' => $preparation_time, 'tag_id' => $tag, 'category_id' => $cate,
+                'image' => $path, 'discount' => $discount, 'user_id' => Auth::user()->id];
+            Foods::query()->where('id', $id)->update($insert);
+            return redirect()->route('admin.food.list');
+        } else {
+            $id = $request->id;
+            $name = $request->name;
+            $description = $request->description;
+            $price = $request->price;
+            $service_charge = $request->service_charge;
+            $preparation_time = $request->preparation_time;
+            $tag = $request->tag;
+            $cate = $request->category;
+            $discount = $request->discount;
+            //$path = $request->file('img')->store('images', 'public');
+            $insert = ['name' => $name, 'description' => $description, 'price' => $price, 'service_charge' => $service_charge,
+                'preparation_time' => $preparation_time, 'tag_id' => $tag, 'category_id' => $cate, 'discount' => $discount,
+                'user_id' => Auth::user()->id];
+            Foods::query()->where($id)->update($insert);
+            return redirect()->route('admin.food.list');
+        }
     }
 
     public function show()
@@ -91,9 +127,59 @@ class FoodController extends Controller
 
     }
 
-    public function destroy()
+    public function destroy($id)
     {
-
+        $food = Foods::query()->findOrFail($id);
+        $food->delete();
+        return response()->json(['message' => 'done']);
     }
 
+    public function cart()
+    {
+        if (Auth::check()) {
+            $cart = auth()->get('cart');
+            if ($cart == null){
+                return response()->json(['message'=>'return home to add more food']);
+            }
+            return view('frontend.cart',compact('cart'));
+        }
+    }
+
+    public function addToCart($id)
+    {
+        $carts = auth()->get('cart');
+        $food=Foods::query()->findOrFail($id);
+        if (!$carts){
+            $carts = [
+                $id => [
+                    'name' => $food->name,
+                    'price'=>$food->price,
+                    'quantity' => 1,
+                    'img' =>$food->img,
+                ]
+            ];
+        }
+        if (isset($carts[$id])){
+            $carts[$id]['quantity']+=1;
+            session()->put('cart',$carts);
+            return redirect()->back();
+        }
+        $carts[$id]=[
+            'name' => $food->name,
+            'price'=>$food->price,
+            'quantity' => 1,
+            'img' =>$food->img,
+        ];
+        session()->put('cart',$carts);
+        return redirect()->back();
+    }
+    public function deleteCart($id)
+    {
+        $carts = session()->get('cart');
+        unset($carts[$id - 1]);
+//        dd($carts);
+        session()->put('cart', $carts);
+       // toastr()->success('delete cart success');
+        return redirect()->back();
+    }
 }

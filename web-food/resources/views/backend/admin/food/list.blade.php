@@ -1,8 +1,5 @@
 @extends('layout.master')
 @section('content')
-
-
-
     <div class="container-fluid py-4">
         <div class="row">
             <div class="col-12">
@@ -63,11 +60,11 @@
                                         <td class="align-middle text-center text-sm">
                                             <span class="badge badge-sm bg-gradient-success">{{$food->restaurant}}</span>
                                         </td>
-                                        {{--<td class="align-middle">
+                                        <td class="align-middle">
                                             <a href="{{route('admin.food.update',$food->id)}}" class="text-secondary font-weight-bold text-xs btn bg-gradient-warning" data-toggle="tooltip" data-original-title="Edit user">
                                                 Edit
                                             </a>
-                                        </td>--}}
+                                        </td>
 
                                     </tr>
                                 @empty
