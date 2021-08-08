@@ -195,7 +195,7 @@
                 </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link  " href="{{ asset('pages/sign-in.html') }}">
+                <a class="nav-link  " href="{{ route('login.goToLogin')}}">
                     <div
                         class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center">
                         <svg width="12px" height="12px" viewBox="0 0 40 44" version="1.1"
@@ -293,7 +293,7 @@
                 </div>
                 <ul class="navbar-nav  justify-content-end">
                     <li class="nav-item d-flex align-items-center">
-                        <a href="javascript:;" class="nav-link text-body font-weight-bold px-0">
+                        <a href="{{ route('login.goToLogin')}}" class="nav-link text-body font-weight-bold px-0">
                             <i class="fa fa-user me-sm-1"></i>
                             <span class="d-sm-inline d-none">Sign In</span>
                         </a>

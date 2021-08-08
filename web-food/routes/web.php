@@ -29,25 +29,26 @@ Route::prefix('login')->group(function () {
 });
 
 
-Route::get('/', [LoginController::class, 'goToLogin'])->name('login.goToLogin');
+Route::get('/', [FoodController::class, 'index'])->name('admin.food.list');
 
+Route::middleware('auth')->group(function () {
+    Route::prefix('/admin')->group(function () {
+        Route::prefix('/food')->group(function () {
 
-Route::prefix('/admin')->group(function (){
-    Route::prefix('/food')->group(function(){
+            Route::get('/', [FoodController::class, 'index'])->name('admin.food.list');
 
-        Route::get('/',[FoodController::class,'index'])->name('admin.food.list');
+            Route::get('/add', [FoodController::class, 'create'])->name('admin.food.create');
 
-        Route::get('/add',[FoodController::class,'create'])->name('admin.food.create');
+            Route::post('/add', [FoodController::class, 'store'])->name('admin.food.store');
 
-        Route::post('/add',[FoodController::class,'store'])->name('admin.food.store');
+            Route::get('/update/{id}', [FoodController::class, 'update'])->name('admin.food.update');
 
-        Route::get('/update/{id}',[FoodController::class,'update'])->name('admin.food.update');
+            Route::post('/update/{id}', [FoodController::class, 'edit'])->name('admin.food.edit');
 
-        Route::post('/update/{id}',[FoodController::class,'edit'])->name('admin.food.edit');
+            Route::get('/detail/{id}', [FoodController::class, 'show'])->name('admin.food.show');
 
-        Route::get('/detail/{id}',[FoodController::class,'show'])->name('admin.food.show');
-
-        Route::get('/delete/{id}',[FoodController::class,'destroy'])->name('admin.food.delete');
+            Route::get('/delete/{id}', [FoodController::class, 'destroy'])->name('admin.food.delete');
+        });
     });
 });
 

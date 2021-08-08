@@ -3,7 +3,6 @@
 @section('content')
 
     <form class="needs-validation" method="post" action="{{ route('admin.food.store') }}" enctype="multipart/form-data">
-        @csrf
         <div class="form-row">
             <div class="col-md-3 mb-3">
                 <label for="validationCustom01">Food Name</label>
@@ -27,7 +26,7 @@
                     {{--                        <span class="input-group-text" id="inputGroupPrepend">@</span>--}}
                     {{--                    </div>--}}
                     <input type="number" class="form-control" id="validationCustomUsername" name="discount"
-                           aria-describedby="inputGroupPrepend">
+                           aria-describedby="inputGroupPrepend" required>
                     {{--                    <div class="invalid-feedback">--}}
                     {{--                        Please choose a username.--}}
                     {{--                    </div>--}}
@@ -70,7 +69,7 @@
         </div>
         <div class="form-group">
             <label for="validationCustom06">Chose a picture</label>
-            <input class="form-control-file" type="file" name="img" id="invalidCheck">
+            <input class="form-control-file" type="file" name="img" id="invalidCheck" required>
         </div>
         <div class="form-row">
             <div class="col-mb-3 mb-3">
@@ -102,3 +101,4 @@
         })();
     </script>
 @endsection
+<?php

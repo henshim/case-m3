@@ -3,6 +3,7 @@
 namespace App\Http\Repositories;
 
 use App\Models\Foods;
+use http\Env\Request;
 use Illuminate\Support\Facades\DB;
 
 class FoodRepository
@@ -31,26 +32,39 @@ class FoodRepository
 
     public function add($request)
     {
-        $name = $request->name;
-        $description = $request->description;
-        $price = $request->price;
-        $service_charge = $request->service_charge;
-        $preparation_time = $request->preparation_time;
-        $tag = $request->tag;
-        $cate = $request->category;
-        $path = $request->file('img')->store('images', 'public');
-        $insert = ['name' => $name, 'description' => $description, 'price' => $price, 'service_charge' => $service_charge,
-                    'preparation_time' => $preparation_time,'tag_id'=>$tag,'category_id'=>$cate,
-                    'image'=>$path];
-        Foods::query()->insert($insert);
-
-        return redirect()->route('admin.food.list');
     }
 
     public function update($request)
     {
         if ($request->hasFile('img')) {
-
+            $id = $request->id;
+            $name = $request->name;
+            $description = $request->description;
+            $price = $request->price;
+            $service_charge = $request->service_charge;
+            $preparation_time = $request->preparation_time;
+            $tag = $request->tag;
+            $cate = $request->category;
+            $path = $request->file('img')->store('images', 'public');
+            $update = ['name' => $name, 'description' => $description, 'price' => $price, 'service_charge' => $service_charge,
+                'preparation_time' => $preparation_time, 'tag_id' => $tag, 'category_id' => $cate,
+                'image' => $path];
+            Foods::query()->where($id)->update($update);
+            return redirect()->route('admin.food.list');
+        } else {
+            $id = $request->id;
+            $name = $request->name;
+            $description = $request->description;
+            $price = $request->price;
+            $service_charge = $request->service_charge;
+            $preparation_time = $request->preparation_time;
+            $tag = $request->tag;
+            $cate = $request->category;
+            //$path = $request->file('img')->store('images', 'public');
+            $update = ['name' => $name, 'description' => $description, 'price' => $price, 'service_charge' => $service_charge,
+                'preparation_time' => $preparation_time, 'tag_id' => $tag, 'category_id' => $cate,];
+            Foods::query()->where($id)->update($update);
+            return redirect()->route('admin.food.list');
         }
     }
 }
