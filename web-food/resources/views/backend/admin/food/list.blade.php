@@ -1,8 +1,5 @@
 @extends('layout.master')
 @section('content')
-
-
-
     <div class="container-fluid py-4">
         <div class="row">
             <div class="col-12">
@@ -28,11 +25,11 @@
                                 </thead>
                                 <tbody>
                                 @forelse($foods as $key=>$food)
-                                    <tr>
+                                    <tr id="food-{{ $food->id }}">
                                         <td>
                                             <div class="d-flex px-2 py-1">
                                                 <div>
-                                                    <img src="{{asset(''.$food->image)}}" class="avatar avatar-sm me-3" alt="user1">
+                                                    <img src="{{asset('storage/'.$food->image)}}" class="avatar avatar-sm me-3" alt="user1">
                                                 </div>
                                                 <div class="d-flex flex-column justify-content-center">
                                                     <h6 class="mb-0 text-sm">{{$food->name}}</h6>
@@ -42,7 +39,7 @@
                                         </td>
                                         <td>
                                             <p class="text-xs font-weight-bold mb-0">{{$food->price}} Dong</p>
-                                            <p class="text-xs text-secondary mb-0">{{$food->price_after_sale}} Dong</p>
+                                            <p class="text-xs text-secondary mb-0">{{$food->discount}} Dong</p>
                                         </td>
                                         <td class="align-middle text-center text-sm">
                                             <span class="text-secondary text-xs font-weight-bold">{{$food->service_charge}} Dong</span>
@@ -60,9 +57,12 @@
                                             <span class="badge badge-sm bg-gradient-success">{{$food->restaurant}}</span>
                                         </td>
                                         <td class="align-middle">
-                                            <a href="{{route('admin.food.update',$food->id)}}" class="text-secondary font-weight-bold text-xs btn bg-gradient-warning" data-toggle="tooltip" data-original-title="Edit user">
+                                            <a href="{{ route('admin.food.update',$food->id) }}" class="text-secondary font-weight-bold text-xs btn bg-gradient-warning" data-toggle="tooltip" data-original-title="Edit user">
                                                 Edit
                                             </a>
+                                            <button data-id="{{ $food->id }}" class="delete btn btn-danger" data-toggle="tooltip" data-original-title="Edit user">
+                                                Delete
+                                            </button>
                                         </td>
 
                                     </tr>

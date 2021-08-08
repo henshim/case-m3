@@ -2,19 +2,20 @@
 @section('title','Add new food')
 @section('content')
 
-    <form class="needs-validation" method="post" action="{{ route('admin.food.store') }}" enctype="multipart/form-data">
+    <form class="needs-validation" method="post" action="{{ route('admin.food.edit') }}" enctype="multipart/form-data">
+        @csrf
         <div class="form-row">
             <div class="col-md-3 mb-3">
+                <input type="hidden" value="{{ $food->id }}">
                 <label for="validationCustom01">Food Name</label>
-                <input type="text" class="form-control" id="validationCustom01" name="name" required>
+                <input type="text" class="form-control" id="validationCustom01" name="name" value="{{ $food->name }}" required>
                 {{--                <div class="valid-feedback">--}}
                 {{--                    Looks good!--}}
                 {{--                </div>--}}
             </div>
             <div class="col-md-3 mb-3">
                 <label for="validationCustom02">Price</label>
-                <input type="number" class="form-control" id="validationCustom02" name="price"
-                       required>
+                <input type="number" class="form-control" id="validationCustom02" name="price" value="{{ $food->price }}" required>
                 {{--                <div class="valid-feedback">--}}
                 {{--                    Looks good!--}}
                 {{--                </div>--}}
@@ -26,7 +27,7 @@
                     {{--                        <span class="input-group-text" id="inputGroupPrepend">@</span>--}}
                     {{--                    </div>--}}
                     <input type="number" class="form-control" id="validationCustomUsername" name="discount"
-                           aria-describedby="inputGroupPrepend" required>
+                           aria-describedby="inputGroupPrepend" value="{{$food->discount}}">
                     {{--                    <div class="invalid-feedback">--}}
                     {{--                        Please choose a username.--}}
                     {{--                    </div>--}}
@@ -36,14 +37,14 @@
         <div class="form-row">
             <div class="col-md-3 mb-3">
                 <label for="validationCustom03">Service charge</label>
-                <input type="number" class="form-control" id="validationCustom03" name="service_charge" required>
+                <input type="number" class="form-control" id="validationCustom03" name="service_charge" value="{{$food->service_charge}}" required>
                 {{--                <div class="invalid-feedback">--}}
                 {{--                    Please provide a valid city.--}}
                 {{--                </div>--}}
             </div>
             <div class="col-md-3 mb-3">
                 <label for="validationCustom04">Preparation time</label>
-                <input type="number" class="form-control" id="validationCustom04" name="preparation_time" required>
+                <input type="number" class="form-control" id="validationCustom04" value="{{$food->preparation_time}}" name="preparation_time" required>
                 {{--                <div class="invalid-feedback">--}}
                 {{--                    Please provide a valid state.--}}
                 {{--                </div>--}}
@@ -69,12 +70,13 @@
         </div>
         <div class="form-group">
             <label for="validationCustom06">Chose a picture</label>
-            <input class="form-control-file" type="file" name="img" id="invalidCheck" required>
+            <input class="form-control-file" type="file" name="img" id="invalidCheck">
+            <img src="{{asset('storage/'.$food->image)}}" class="avatar avatar-sm me-3" alt="user1">
         </div>
         <div class="form-row">
             <div class="col-mb-3 mb-3">
                 <label for="validationCustom07">Description</label>
-                <textarea name="description" id="" cols="30" rows="10"></textarea>
+                <textarea name="description" id="" cols="30" rows="10">{{ $food->description }}</textarea>
             </div>
         </div>
         <button class="btn btn-primary" type="submit">Save</button>
@@ -101,4 +103,3 @@
         })();
     </script>
 @endsection
-<?php

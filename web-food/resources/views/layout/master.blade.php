@@ -325,7 +325,8 @@
                                         <div class="d-flex py-1">
                                             <div class="my-auto">
                                                 <img
-                                                    src="{{ asset('assets/img/team-2.jpg"') }}" class="avatar avatar-sm  me-3">
+                                                    src="{{ asset('assets/img/team-2.jpg"') }}"
+                                                    class="avatar avatar-sm  me-3">
                                             </div>
                                             <div class="d-flex flex-column justify-content-center">
                                                 <h6 class="text-sm font-weight-normal mb-1">
@@ -427,7 +428,8 @@
         </div>
     </div>
 </main>
-
+<script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk="
+        crossorigin="anonymous"></script>
 <script src="{{ asset('Template-admin/assets/js/core/popper.min.js')}}"></script>
 <script src="{{ asset('Template-admin/assets/js/core/bootstrap.min.js') }}"></script>
 <script src="{{ asset('Template-admin/assets/js/plugins/perfect-scrollbar.min.js') }}"></script>
@@ -618,6 +620,6 @@
 <!-- Control Center for Soft Dashboard: parallax effects, scripts for the example pages etc -->
 
 <script src="{{ asset('Template-admin/assets/js/soft-ui-dashboard.min.js?v=1.0.3') }}"></script>
-
+<script src="{{ asset('js/list.js') }}"></script>
 </body>
 </html>

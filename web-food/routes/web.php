@@ -43,7 +43,7 @@ Route::middleware('auth')->group(function () {
 
             Route::get('/update/{id}', [FoodController::class, 'update'])->name('admin.food.update');
 
-            Route::post('/update/{id}', [FoodController::class, 'edit'])->name('admin.food.edit');
+            Route::post('/update', [FoodController::class, 'edit'])->name('admin.food.edit');
 
             Route::get('/detail/{id}', [FoodController::class, 'show'])->name('admin.food.show');
 
