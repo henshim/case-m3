@@ -1,6 +1,7 @@
 <?php
 
-use App\Http\Controllers\FoodController;
+use App\Http\Controllers\admin\FoodController;
+use App\Http\Controllers\admin\RestaurantController;
 use App\Http\Controllers\LoginController;
 use Illuminate\Support\Facades\Route;
 
@@ -48,6 +49,10 @@ Route::middleware('auth')->group(function () {
             Route::get('/detail/{id}', [FoodController::class, 'show'])->name('admin.food.show');
 
             Route::get('/delete/{id}', [FoodController::class, 'destroy'])->name('admin.food.delete');
+        });
+
+        Route::prefix('/restaurant')->group(function (){
+            Route::get('/',[RestaurantController::class,'getAll'])->name('admin.restaurant.list');
         });
     });
 });

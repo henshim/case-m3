@@ -27,7 +27,7 @@ class FoodRepository
                 'users.restaurant AS restaurant')
             ->join('tags', 'tags.id', '=', 'tag_id')
             ->join('categories', 'categories.id', '=', 'category_id')
-            ->join('users', 'users.id', '=', 'user_id')->paginate(8);
+            ->join('users', 'users.id', '=', 'user_id')->paginate(2);
     }
 
     public function add($request)

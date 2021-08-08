@@ -1,7 +1,8 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\admin;
 
+use App\Http\Controllers\Controller;
 use App\Http\Repositories\FoodRepository;
 use App\Models\Categories;
 use App\Models\Foods;

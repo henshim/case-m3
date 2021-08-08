@@ -9,7 +9,9 @@
                 <div class="card mb-4">
                     <div class="card-header pb-0">
                         <h6 style="text-align: center">Food table</h6>
+{{--
                         <a href="{{ route('admin.food.create') }}" class="btn btn-success">Add Food</a>
+--}}
                     </div>
                     <div class="card-body px-0 pt-0 pb-2">
                         <div class="table-responsive p-0">
@@ -23,7 +25,9 @@
                                     <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Tag </th>
                                     <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">The loai </th>
                                     <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Nha Hang </th>
+{{--
                                     <th class="text-secondary opacity-7"></th>
+--}}
                                 </tr>
                                 </thead>
                                 <tbody>
@@ -59,11 +63,11 @@
                                         <td class="align-middle text-center text-sm">
                                             <span class="badge badge-sm bg-gradient-success">{{$food->restaurant}}</span>
                                         </td>
-                                        <td class="align-middle">
+                                        {{--<td class="align-middle">
                                             <a href="{{route('admin.food.update',$food->id)}}" class="text-secondary font-weight-bold text-xs btn bg-gradient-warning" data-toggle="tooltip" data-original-title="Edit user">
                                                 Edit
                                             </a>
-                                        </td>
+                                        </td>--}}
 
                                     </tr>
                                 @empty
@@ -71,6 +75,8 @@
                                 @endforelse
                                 </tbody>
                             </table>
+                            {{$foods->links()}}
+
                         </div>
                     </div>
                 </div>
