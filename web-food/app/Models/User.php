@@ -11,6 +11,25 @@ class User extends Authenticatable
 {
     use HasFactory, Notifiable;
 
+    public function role()
+    {
+        return $this->hasOne(Roles::class,'role_id');
+    }
+
+    public function order()
+    {
+        return $this->belongsTo(Orders::class,'user_id');
+    }
+
+    public function restaurant()
+    {
+        return $this->belongsTo(Orders::class,'restaurant_id');
+    }
+
+    public function food()
+    {
+        return $this->belongsTo(Foods::class,'user_id');
+    }
     public $timestamps = false;
     /**
      * The attributes that are mass assignable.
@@ -42,13 +61,4 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
-    public function role()
-    {
-        return $this->belongsToMany(Role::class);
-    }
-
-    public function food()
-    {
-        return $this->belongsTo(Food::class);
-    }
 }
