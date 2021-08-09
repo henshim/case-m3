@@ -18,7 +18,7 @@
                                         <div>
                                             <div class="card text-center">
                                                 <div class="card-header">
-                                                    <img src="{{asset('storage/'.$food->image)}}"
+                                                    <img src="{{asset('storage/images'.$food->image)}}"
                                                          class="avatar avatar-sm me-3"
                                                          alt="user1">
                                                 </div>

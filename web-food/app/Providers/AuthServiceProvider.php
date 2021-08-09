@@ -25,15 +25,15 @@ class AuthServiceProvider extends ServiceProvider
     {
         $this->registerPolicies();
 
-        Gate::define('store', function ($user){
+        Gate::define('show-user', function ($user){
             if ($user->role_id == '3' || $user->role_id == '2'){
                 return true;
             }
             return false;
         });
 
-        Gate::define('edit', function ($user){
-            if ($user->role_id == '1' || $user->role_id == '2'){
+        Gate::define('show-customer', function ($user){
+            if ($user->role_id == '1'){
                 return true;
             }
             return false;

@@ -24,19 +24,19 @@ Route::prefix('login')->group(function () {
 
     Route::post('login', [LoginController::class, 'login'])->name('login.login');
 
-    Route::post('register', [LoginController::class, 'register'])->name('login.register');
+    Route::post('register', [LoginController::class, 'registerUser'])->name('login.register');
 
     Route::get('logout', [LoginController::class, 'logout'])->name('login.logout');
 });
 
 
-Route::get('/', [FoodController::class, 'index'])->name('admin.food.list');
+Route::get('/', [FoodController::class, 'index'])->name('food.list');
 
 Route::middleware('auth')->group(function () {
     Route::prefix('/admin')->group(function () {
         Route::prefix('/food')->group(function () {
 
-            Route::get('/', [FoodController::class, 'index'])->name('admin.food.list');
+            Route::get('/', [FoodController::class, 'index2'])->name('admin.food.list');
 
             Route::get('/add', [FoodController::class, 'create'])->name('admin.food.create');
 
