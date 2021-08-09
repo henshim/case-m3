@@ -29,7 +29,7 @@ class FoodController extends Controller
     public function index()
     {
         $foods = $this->foodRepository->getAll();
-        return view('frontend.list', compact('foods'));
+        return view('backend.admin.food.list', compact('foods'));
     }
 
     public function create()
