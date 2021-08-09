@@ -162,6 +162,7 @@ class FoodController extends Controller
                     'price' => $food->price,
                     'quantity' => 1,
                     'img' => $food->img,
+                    'discount' => $food->discount,
                 ]
             ];
         }

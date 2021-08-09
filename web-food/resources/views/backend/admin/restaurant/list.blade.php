@@ -23,7 +23,7 @@
                                     <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Trang thai hoat dong </th>
                                     <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Cam </th>
                                     <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Vai tro </th>
-                                    <th class="text-secondary opacity-7"></th>
+                                    <th class="text-secondary opacity-7">Cam hoat dong</th>
                                 </tr>
                                 </thead>
                                 <tbody>
@@ -59,9 +59,9 @@
                                         <td class="align-middle text-center text-sm">
                                             <span class="badge badge-sm bg-gradient-success">Cong tac vien Bep tren may</span>
                                         </td>
-                                        <td class="align-middle">
+                                        <td class="align-middle  text-center">
                                             <a href="{{}}" class="text-secondary font-weight-bold text-xs btn bg-gradient-danger" data-toggle="tooltip" data-original-title="Edit user">
-                                                Cam hoat dong
+                                                                X
                                             </a>
                                         </td>
 
