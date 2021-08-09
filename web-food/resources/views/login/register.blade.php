@@ -1680,18 +1680,48 @@
                         </div>
                     </div>
                     <div class="card-body">
-                        <form role="form text-left">
+                        <form role="form text-left" method="post" action="{{ route('login.register') }}">
+                            @csrf
                             <div class="mb-3">
-                                <input type="text" class="form-control" placeholder="Name" aria-label="Name"
-                                       aria-describedby="email-addon">
+                                <input type="text" class="form-control @error('name') is-invalid @enderror"
+                                       placeholder="Name" aria-label="Name"
+                                       aria-describedby="email-addon" name="name">
+                                @error('name')
+                                <p class="alert alert-danger">
+                                    {{ $errors }}
+                                </p>
+                                @enderror
                             </div>
                             <div class="mb-3">
-                                <input type="email" class="form-control" placeholder="Email" aria-label="Email"
-                                       aria-describedby="email-addon">
+                                <input type="email" class="form-control @error('email') is-invalid @enderror"
+                                       placeholder="Email" aria-label="Email"
+                                       aria-describedby="email-addon" name="email">
+                                @error('email')
+                                <p class="alert alert-danger">
+                                    {{ $errors }}
+                                </p>
+                                @enderror
                             </div>
                             <div class="mb-3">
-                                <input type="password" class="form-control" placeholder="Password" aria-label="Password"
-                                       aria-describedby="password-addon">
+                                <input type="password" class="form-control @error('password')) is-invalid @enderror"
+                                       placeholder="Password" aria-label="Password"
+                                       aria-describedby="password-addon" name="password">
+                                @error('password')
+                                <p class="alert alert-danger">
+                                    {{ $message }}
+                                </p>
+                                @enderror
+                            </div>
+                            <div class="mb-3">
+                                <input type="password" class="form-control @error('password')) is-invalid @enderror"
+                                       placeholder="Password Confirm password"
+                                       aria-label="Password"
+                                       aria-describedby="password-addon" name="c_password">
+                                @error('c_password')
+                                <p class="alert alert-danger">
+                                    {{ $message }}
+                                </p>
+                                @enderror
                             </div>
                             <div class="form-check form-check-info text-left">
                                 <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault" checked>
@@ -1701,10 +1731,11 @@
                                 </label>
                             </div>
                             <div class="text-center">
-                                <button type="button" class="btn bg-gradient-dark w-100 my-4 mb-2">Sign up</button>
+                                <button type="submit" class="btn bg-gradient-dark w-100 my-4 mb-2">Sign up</button>
                             </div>
-                            <p class="text-sm mt-3 mb-0">Already have an account? <a href="javascript:;"
-                                                                                     class="text-dark font-weight-bolder">Sign
+                            <p class="text-sm mt-3 mb-0">Already have an account? <a
+                                    href="{{ route('login.goToLogin') }}"
+                                    class="text-dark font-weight-bolder">Sign
                                     in</a></p>
                         </form>
                     </div>

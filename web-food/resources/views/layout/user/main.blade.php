@@ -13,9 +13,9 @@
     <link href="{{asset('Template-user/css/animate.css')}}" rel="stylesheet">
     <link href="{{asset('Template-user/css/main.css')}}" rel="stylesheet">
     <link href="{{asset('Template-user/css/responsive.css')}}" rel="stylesheet">
-<!--[if lt IE 9]>
-    <script src="{{asset('Template-user/')}}js/html5shiv.js"></script>
-    <script src="{{asset('Template-user/')}}js/respond.min.js"></script>
+
+    <script src="{{asset('Template-user/js/html5shiv.js')}}"></script>
+    <script src="{{asset('Template-user/js/respond.min.js')}}"></script>
     <![endif]-->
     <link rel="shortcut icon" href="images/ico/favicon.ico">
     <link rel="apple-touch-icon-precomposed" sizes="144x144" href="images/ico/apple-touch-icon-144-precomposed.png">
@@ -64,11 +64,16 @@
                 <div class="col-md-8 clearfix">
                     <div class="shop-menu clearfix pull-right">
                         <ul class="nav navbar-nav">
-                            <li><a href=""><i class="fa fa-user"></i> Account</a></li>
                             <li><a href=""><i class="fa fa-star"></i> Wishlist</a></li>
                             <li><a href="checkout.html"><i class="fa fa-crosshairs"></i> Checkout</a></li>
-                            <li><a href="cart.html"><i class="fa fa-shopping-cart"></i> Cart</a></li>
-                            <li><a href="login.html"><i class="fa fa-lock"></i> Login</a></li>
+                            <li><a href="{{ route('show.cart') }}"><i class="fa fa-shopping-cart"></i>
+                                    Cart</a></li>
+                            @if(Auth::check())
+                                <li><a href=""><i class="fa fa-user"></i> {{ Auth::user()->name }}</a></li>
+                                <li><a href="{{ route('login.logout') }}"><i class="fa fa-sign-out"></i> Log Out</a></li>
+                            @else
+                                <li><a href="{{ route('login.goToLogin')}}"><i class="fa fa-lock"></i> Login</a></li>
+                            @endif
                         </ul>
                     </div>
                 </div>
@@ -153,11 +158,14 @@
                             <input type="text" class="span2" value="" data-slider-min="0" data-slider-max="600"
                                    data-slider-step="5" data-slider-value="[250,450]" id="sl2"><br/>
                             <b class="pull-left">10000 VND</b> <b class="pull-right">250000 VND</b>
+
                         </div>
                     </div><!--/price-range-->
 
                     <div class="shipping text-center"><!--shipping-->
+
                         <img src="images/home/shipping.jpg" alt=""/>
+
                     </div><!--/shipping-->
 
                 </div>
@@ -179,8 +187,10 @@
                                     <div class="single-products">
                                         <div class="productinfo text-center">
                                             <img src="images/home/gallery4.jpg" alt=""/>
+
                                             <h2>{{$food->price}} VND</h2>
                                             <p>{{$food->name}}</p>
+
                                             <a href="#" class="btn btn-default add-to-cart"><i
                                                     class="fa fa-shopping-cart"></i>Add to cart</a>
                                         </div>
@@ -188,9 +198,11 @@
                                     </div>
                                 </div>
                             </div>
+
                         @empty
                             <p>Khong co do an</p>
                         @endforelse
+
                     </div>
                 </div>
             </div>
@@ -270,15 +282,20 @@
     <div class="footer-bottom">
         <div class="container">
             <div class="row">
+
                 <p class="pull-left">Copyright © 2021 By My App Food</p>
                 <p class="pull-right">Designed by <span><a target="_blank"
                                                            href="https://www.facebook.com/profile.php?id=100009934660246">NgocTranxz ft Hieu PC </a></span></p>
+
             </div>
         </div>
     </div>
 
 </footer><!--/Footer-->
 
+
+<script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk="
+        crossorigin="anonymous"></script>
 
 <script src="{{asset('Template-user/js/jquery.js')}}"></script>
 <script src="{{asset('Template-user/js/bootstrap.min.js')}}"></script>
