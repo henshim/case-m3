@@ -6,6 +6,7 @@ use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Gate;
+use Illuminate\Support\Facades\Session;
 
 class LoginController extends Controller
 {
@@ -68,5 +69,11 @@ class LoginController extends Controller
         $user = new User();
         $user->restaurant = $request->restaurant;
         $user->save();
+    }
+
+    public function logout()
+    {
+        Session::flush();
+        return redirect()->route('login.goToLogin');
     }
 }

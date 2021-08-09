@@ -17,7 +17,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 
-Route::prefix('login')->group(function () {
+Route::prefix('/')->group(function () {
     Route::get('login', [LoginController::class, 'goToLogin'])->name('login.goToLogin');
 
     Route::get('register', [LoginController::class, 'goToRegister'])->name('login.goToRegister');
@@ -30,7 +30,6 @@ Route::prefix('login')->group(function () {
 });
 
 
-Route::get('/', [FoodController::class, 'index'])->name('admin.food.list');
 
 Route::middleware('auth')->group(function () {
     Route::prefix('/admin')->group(function () {
@@ -55,5 +54,10 @@ Route::middleware('auth')->group(function () {
             Route::get('/',[RestaurantController::class,'getAll'])->name('admin.restaurant.list');
         });
     });
+
+    Route::prefix('/user')->group(function (){
+        Route::get('',[\App\Http\Controllers\user\FoodController::class,'index'])->name('user.food.list');
+    });
 });
 
+Route::get('test',function (){return view('layout.user.main');});
